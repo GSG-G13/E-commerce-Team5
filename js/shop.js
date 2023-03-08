@@ -36,16 +36,6 @@ const cartIcon = document.querySelector(".bag-cart .cart-icon");
 let productAddCart = localStorage.setItem("product", JSON.stringify(productCart));
 
 
-
-
-
-// cartIcon.addEventListener("click", () => {
-//     // window.location.href='cart.html';
-//     // addToCarts()
-
-
-// })
-
 let products = [];
 
 const store = JSON.parse(localStorage.getItem("store")) || {

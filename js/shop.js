@@ -47,16 +47,26 @@ let productAddCart = localStorage.setItem("product", JSON.stringify(productCart)
 // })
 
 let products = [];
-// const cartAdd =[]
 
+const store = JSON.parse(localStorage.getItem("store")) || {
+    users: [],
+    products: [],
+    categories: [],
+    orders: []
+  };
+  
+  let newProduct = store.order
 function addProduct() {
-productAddCart = localStorage.getItem("product")  !== null ?  JSON.parse(localStorage.getItem("product")) : [];
+const cartAdd = store.orders || []
+productAddCart = store.orders;
+const product = store.products
+console.log(product)
 const counterCart = document.querySelector(".count");
 counterCart.textContent = localStorage.getItem("counter");
 
 
 productContainer.innerHTML = " "
-productAddCart.forEach((product,id) => {
+product.forEach((product,id) => {
    
    
     let productDetails = document.createElement("div");
@@ -65,7 +75,7 @@ productAddCart.forEach((product,id) => {
 
     let productImg = document.createElement("img");
     productImg.className = "product-image";
-    productImg.src = product.url;
+    productImg.src = product.productImage;
     productDetails.appendChild(productImg);
 
     let descriptionProduct = document.createElement("div");
@@ -74,18 +84,18 @@ productAddCart.forEach((product,id) => {
 
     let categoryProduct = document.createElement("span");
     categoryProduct.className = "category";
-    categoryProduct.textContent = product.cat;
+    categoryProduct.textContent = "test Cat";
     descriptionProduct.appendChild(categoryProduct);
     descriptionProduct.appendChild(categoryProduct);
 
 
      let nameProduct = document.createElement("h5");
      nameProduct.className = "name";
-    nameProduct.textContent = product.name;
+    nameProduct.textContent = product.productName;
     descriptionProduct.appendChild(nameProduct);
 
     let price = document.createElement("h4");
-    price.textContent = `${product.price}$`;
+    price.textContent = `${product.productPrice}$`;
     descriptionProduct.appendChild(price);
 
 
@@ -99,24 +109,21 @@ productAddCart.forEach((product,id) => {
     addProduct.addEventListener('click', () => {
        
 
-        const newProduct = {
+        newProduct = {
            id:+productDetails.id,
            productImage: productImg.src,
            category:categoryProduct.textContent,
             name:nameProduct.textContent,
             price:price.textContent
-
         }
        
-        let cartAdd = JSON.parse(localStorage.getItem("cart"));
+        let cartAdd = JSON.parse(localStorage.getItem("store"));
         if(cartAdd === null){
             cartAdd = [];
-        
         }
-
-      
-        cartAdd.push(newProduct);
-        localStorage.setItem('cart', JSON.stringify(cartAdd));
+        console.log(newProduct)
+        store.orders.push(newProduct)
+        localStorage.setItem('store', JSON.stringify(store));
     });
 
     productContainer.appendChild(productDetails)

@@ -71,7 +71,7 @@ addButton.addEventListener("click", function(event) {
   for (let i = 0; i < store.products.length; i++) {
     const product = store.products[i];
     const listItem = document.createElement("li");
-    listItem.innerHTML = `<a href="product-details.htmlgit?id=${product.productId}"> ${product.productName} </a> <span> Price: ${product.productPrice}</span><a href="#" class="edit-link" data-product-id="${product.productId}">Edit</a> - <a href="#"  class="delete-link" id="${product.productId}">Delete</a>`;
+    listItem.innerHTML = `<a href="product-details.html?id=${product.productId}"> ${product.productName} </a> <span> Price: ${product.productPrice}</span><a href="#" class="edit-link" data-product-id="${product.productId}">Edit</a> - <a href="#"  class="delete-link" id="${product.productId}">Delete</a>`;
     productList.appendChild(listItem);
   }
   

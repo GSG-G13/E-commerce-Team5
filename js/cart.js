@@ -43,23 +43,29 @@ const removeAllCartProduct = document.getElementById("remove-all");
 
 // }
 // console.log(localStorage.getItem("products"))
-let cartProd = [];
+const store = JSON.parse(localStorage.getItem("store")) || {
+    users: [],
+    products: [],
+    categories: [],
+    orders: []
+  };
+
+let cartProd = store.orders;
 
 function addToCarts() {
 
-
-cartProd = localStorage.getItem("cart")  !== null ?  JSON.parse(localStorage.getItem("cart")) : [];
 // console.log(cart)
 // console.log(products)
 const counterCart = document.querySelector(".count");
 counterCart.textContent = cartProd.length;
+console.log(store.orders)
 
 let cartCounter = localStorage.setItem("counter",cartProd.length);
 
 productContainers.innerHTML = " "
 // console.log(products)
 cartProd.forEach(product => {
-  
+    console.log(cartProd)
     let productDetails = document.createElement("div");
     productDetails.className = "product";
 
@@ -116,7 +122,7 @@ cartProd.map((product,i) => {
     cartProd.splice(i,1);
 }
 
-localStorage.setItem("cart",JSON.stringify(cartProd));
+localStorage.setItem("store",JSON.stringify(store));
 })
     addToCarts();
 }
@@ -127,7 +133,7 @@ localStorage.setItem("cart",JSON.stringify(cartProd));
 removeAllCartProduct.addEventListener("click",removeAll)
 function removeAll() {
   cartProd = [];
-    localStorage.setItem("cart",JSON.stringify(cartProd));
+    localStorage.setItem("store",JSON.stringify(store));
     addToCarts()
 }
 

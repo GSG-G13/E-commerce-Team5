@@ -39,7 +39,7 @@ const store = JSON.parse(localStorage.getItem("store")) || {
     // display the added product at the bottom of the form
     const productList = document.getElementById("productList");
     const newProduct = document.createElement("li");
-    newProduct.innerHTML = `<span>${productId}: ${productName} </span><span> Price: ${productPrice}</span><a href="#" class="edit-link" data-product-id="${product.productId}">Edit</a> - <a href="#"  class="delete-link" id="${product.productId}">Delete</a>`;
+    newProduct.innerHTML = `<a href="?id=""${product.productId}"" class="edit-link" data-product-id="${product.productId}">${productId}: ${productName} </a><span> Price: ${productPrice}</span><a href="#" class="edit-link" data-product-id="${product.productId}">Edit</a> - <a href="#"  class="delete-link" id="${product.productId}">Delete</a>`;
     productList.appendChild(newProduct);
   }
   
@@ -71,7 +71,7 @@ addButton.addEventListener("click", function(event) {
   for (let i = 0; i < store.products.length; i++) {
     const product = store.products[i];
     const listItem = document.createElement("li");
-    listItem.innerHTML = `<span>${product.productId}: ${product.productName} </span><span> Price: ${product.productPrice}</span><a href="#" class="edit-link" data-product-id="${product.productId}">Edit</a> - <a href="#"  class="delete-link" id="${product.productId}">Delete</a>`;
+    listItem.innerHTML = `<a href="product-details.htmlgit?id=${product.productId}"> ${product.productName} </a> <span> Price: ${product.productPrice}</span><a href="#" class="edit-link" data-product-id="${product.productId}">Edit</a> - <a href="#"  class="delete-link" id="${product.productId}">Delete</a>`;
     productList.appendChild(listItem);
   }
   
@@ -88,7 +88,7 @@ addButton.addEventListener("click", function(event) {
       document.getElementById("isFeaturedProduct").value = product.isFeatured ? "1" : "0";
       document.getElementById("isNewArrival").value = product.isNewArrival ? "1" : "0";
   
-      // change the add button to an edit button
+      // change the add button to an edit bu
       const addButton = document.getElementById("addButton");
       addButton.innerHTML = "Update Product";
       addButton.removeEventListener("click", addProduct); // remove the addProduct event listener

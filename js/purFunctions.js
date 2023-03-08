@@ -6,6 +6,7 @@ const deleteObject = (arr,id) =>(
     arr[index] = newObj;
     return arr;
   }
+  
   module.exports = {
     deleteObject,
     editObject

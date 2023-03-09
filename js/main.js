@@ -14,7 +14,7 @@ for (product of store.products) {
     if(product.isFeatured == true){
     featuredProducts.innerHTML += ` 
     <div class="product">
-        <img src="${product.productImage}" alt="" />
+        <a href="product-details.html"><img src="${product.productImage}" alt="" /></>
         <div class="description">
             <span>adidas</span>
             <h5>${product.productName}</h5>

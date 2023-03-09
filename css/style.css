@@ -703,7 +703,60 @@ justify-content: space-between;
   background-color: #ffe5e8;
   border-color:  #ec5525;
 }
+ input[type=text],
+ select,
+ textarea,
+ input[type=number] {
+   width: 100%;
+   padding: 12px 20px;
+   margin: 8px 0;
+   display: inline-block;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   text-align: left;
+ }
 
+ label {
+   float: left;
+ }
+
+ #productList {
+   width: 100%;
+   padding: 12px 0 20px 0;
+   margin: 30px 0 20px 20px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   text-align: left;
+   list-style-type: none;
+   display: flex;
+   flex-direction: column;
+ }
+
+ #productList li {
+   margin: 12px 30px 20px 20px;
+   border-bottom: 1px solid #ccc;
+   list-style-type: none;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: flex-start;
+ }
+
+ #addButton {
+   background-color: #4CAF50;
+   color: white;
+   padding: 14px;
+   margin: 8px 0;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+ }
+
+ #addButton:hover {
+   background-color: #45a049;
+ }
 
 @media (max-width:799px) {
   .section-p1 {

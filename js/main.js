@@ -14,7 +14,7 @@ for (product of store.products) {
     if(product.isFeatured == true){
     featuredProducts.innerHTML += ` 
     <div class="product">
-        <a href="../public/product-details.html?id="${product.productId}""><img src="${product.productImage}" alt="" /></>
+        <a href="../public/product-details.html?id="${product.productId}"><img src="${product.productImage}" alt="" /></>
         <div class="description">
             <span>adidas</span>
             <h5>${product.productName}</h5>
@@ -37,7 +37,7 @@ for (product of store.products) {
     if(product.isNewArrival == true){
         newArrivals.innerHTML += ` 
     <div class="product">
-        <a href="../public/product-details.html?id="${product.productId}""><img src="${product.productImage}" alt="" /></>
+        <a href="../public/product-details.html?id="${product.productId}"><img src="${product.productImage}" alt="" /></>
         <div class="description">
             <span>adidas</span>
             <h5>${product.productName}</h5>
